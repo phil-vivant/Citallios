@@ -44,5 +44,7 @@ print_hypotheses(
 verif_els(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
 verif_elu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
 verif_feu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
-# section_1.plot_interaction_diagram_v2(finess=1)
-# section_2.plot_interaction_diagram_v2(finess=1)
+
+section_1, section_2 = def_sections(materiaux, geom, renforts, 'elu')
+section_1.plot_interaction_diagram_v2(finess=1)
+section_2.plot_interaction_diagram_v2(finess=1)
