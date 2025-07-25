@@ -103,7 +103,7 @@ def def_sections(
         regions=[dalle_reg],
         rebars=[rebar_inf],
         frp_strips=[],
-        fibre_size_y=0.01,
+        fibre_size_y=b_dalle / 2,
         fibre_size_z=0.005,
     )
 
@@ -136,7 +136,7 @@ def def_sections(
         regions=[dalle_reg],
         rebars=rebars,
         frp_strips=[FRP_inf],
-        fibre_size_y=0.01,
+        fibre_size_y=b_dalle / 2,
         fibre_size_z=0.005,
     )
 
