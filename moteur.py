@@ -159,15 +159,15 @@ def print_hypotheses(
     data = "Rappel des hypothèses :"
     data += f"\n\tSection : \t{round(b_dalle, 2)} m x {round(h_dalle, 2)} m ht"
     data += f"\n\tBéton :\t\tfck = {fck} MPa"
-    data += f"\n\tAcier HA :\tfyk = {fyk} MPa"
-    data += f"\n\tBarres HA : \t{ns} x As = {round(As * 1e4, 2)} cm²"
-    data += f"\n\tRenforts HA : \t{nsr} x Asr = {round(Asr * 1e4, 2)} cm²"
-    data += f"\n\tRenforts FRP : \t{nf} x Af = {round(Af * 1e4, 2)} cm²"
+    data += f"\n\tAcier HA :\tfyk = {fyk} MPa\tClasse \"{class_acier}\""
+    data += f"\n\tBarres HA : \t{ns} x As\t= {round(As * 1e4, 2)} cm²"
+    data += f"\n\tRenforts HA : \t{nsr} x Asr\t= {round(Asr * 1e4, 2)} cm²"
+    data += f"\n\tRenforts FRP : \t{nf} x Af\t= {round(Af * 1e4, 2)} cm²"
     data += f"\n\nRappel des sollicitations :"
-    data += f"\n\tM_ELS1 = {round(m_els_1, 2)} kN.m"
-    data += f"\n\tM_ELS2 = {round(m_els_2, 2)} kN.m"
-    data += f"\n\tM_ELU = {round(m_elu, 2)} kN.m"
-    data += f"\n\tM_feu = {round(m_feu, 2)} kN.m"
+    data += f"\n\tM_ELS1\t= {round(m_els_1, 2)} kN.m"
+    data += f"\n\tM_ELS2\t= {round(m_els_2, 2)} kN.m"
+    data += f"\n\tM_ELU\t= {round(m_elu, 2)} kN.m"
+    data += f"\n\tM_feu\t= {round(m_feu, 2)} kN.m"
     print(data)
 
     return None
@@ -183,7 +183,7 @@ def verif_elu(
     ned = 0
     m_els_1, m_els_2, m_elu, m_feu = unpack_forces(efforts=efforts)
     result_elu = "Vérification ELU :"
-    result_elu += f"\n\tMoment sollicitant : \tM_ed = {m_elu: .1f} kN.m"
+    result_elu += f"\n\tMoment sollicitant : \tM_ed  = {m_elu: .1f} kN.m"
     result_elu += f"\n\tAvant renforcement : \tM_rd1 = {section_1.Mrd_max(ned): .1f} kN.m"
     result_elu += f"\n\tAprès renforcement : \tM_rd2 = {section_2.Mrd_max(ned): .1f} kN.m"
     print(result_elu)
@@ -217,7 +217,7 @@ def verif_feu(
     ned = 0
     m_els_1, m_els_2, m_elu, m_feu = unpack_forces(efforts=efforts)
     result_elu = "Vérification au feu :"
-    result_elu += f"\n\tMoment sollicitant : \tM_ed = {m_feu: .1f} kN.m"
+    result_elu += f"\n\tMoment sollicitant : \tM_ed  = {m_feu: .1f} kN.m"
     result_elu += f"\n\tAvant renforcement : \tM_rd1 = {section_1.Mrd_max(ned): .1f} kN.m"
     result_elu += f"\n\tAprès renforcement : \tM_rd2 = {section_2.Mrd_max(ned): .1f} kN.m"
     print(result_elu)

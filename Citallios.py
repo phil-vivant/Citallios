@@ -46,5 +46,7 @@ verif_elu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=effort
 verif_feu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
 
 section_1, section_2 = def_sections(materiaux, geom, renforts, 'elu')
-section_1.plot_interaction_diagram_v2(finess=1)
-section_2.plot_interaction_diagram_v2(finess=1)
+section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)
+section_2.plot_interaction_diagram_v2(
+    theta=0, finess=1, add_curves=[section_1_diag],
+)
