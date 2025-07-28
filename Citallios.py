@@ -3,7 +3,9 @@
 # Third party imports
 
 # Local applications imports
-from moteur import def_sections, print_hypotheses, verif_elu, verif_els, verif_feu
+from moteur import (
+    def_sections, print_hypotheses, verif_elu, verif_els, verif_feu,
+)
 
 
 
@@ -41,9 +43,15 @@ efforts = {
 print_hypotheses(
     materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
 )
-verif_els(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
-verif_elu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
-verif_feu(materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts)
+verif_els(
+    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+)
+verif_elu(
+    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+)
+verif_feu(
+    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+)
 
 section_1, section_2 = def_sections(materiaux, geom, renforts, 'elu')
 section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)
