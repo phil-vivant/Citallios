@@ -25,12 +25,12 @@ geom = {
 }
 
 renforts = {
-    'Asr': 1.13e-4,
+    'Asr':1.13e-4,
     'dprim_sr': 0.025,
     'nsr': 2,
     'Af': 0.906e-4,
     'dprim_f': 0.0,
-    'nf': 3,
+    'nf': 0,
 }
 
 efforts = {
@@ -60,3 +60,4 @@ section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)
 section_2.plot_interaction_diagram_v2(
     theta=0, finess=1, add_curves=[section_1_diag],
 )
+print(section_2)

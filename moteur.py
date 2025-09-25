@@ -63,6 +63,12 @@ def default_id_extractor(k: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def env_val(val: float | None, default: float=0) -> float:
+    if val is None:
+        return default
+    return float(val)
+
+
 def envelope(d: dict,
              start: int | None = None,
              end: int | None = None,
@@ -244,12 +250,13 @@ def verif_elu(
     concrete_state_elu = section_2.concrete_internal_state(pod_elu)
     rebars_state_elu = section_2.rebars_internal_state(pod_elu)
     frp_state_elu = section_2.frp_internal_state(pod_elu)
-    sigma_c = envelope(concrete_state_elu)['max']
-    sigma_s = envelope(rebars_state_elu, start=1, end=99)['min']
-    sigma_sr = envelope(rebars_state_elu, start=101, end=199)['min']
-    sigma_f = envelope(frp_state_elu)['min']
+    sigma_c = env_val(envelope(concrete_state_elu)['max'])
+    sigma_s = env_val(envelope(rebars_state_elu, start=1, end=99)['min'])
+    sigma_sr = env_val(envelope(rebars_state_elu, start=101, end=199)['min'])
+    sigma_f = env_val(envelope(frp_state_elu)['min'])
 
-    equilibre_elu = "Equilibre de la section renforcée à l'ELU :"
+    equilibre_elu = "Équilibre de la section renforcée à l'ELU :"
+    equilibre_elu += check_pod_equilibre(pod_elu)
     equilibre_elu += f"\n\tContrainte béton: \tσ_c = {round(sigma_c, 2)} MPa"
     equilibre_elu += f"\n\tContrainte acier: \tσ_s = {round(sigma_s, 1)} MPa"
     equilibre_elu += f"\n\tContrainte acier renf: \tσ_s = {round(sigma_sr, 1)} MPa"
@@ -278,12 +285,13 @@ def verif_feu(
     concrete_state_feu = section_2.concrete_internal_state(pod_feu)
     rebars_state_feu = section_2.rebars_internal_state(pod_feu)
     frp_state_feu = section_2.frp_internal_state(pod_feu)
-    sigma_c = envelope(concrete_state_feu)['max']
-    sigma_s = envelope(rebars_state_feu, start=1, end=99)['min']
-    sigma_sr = envelope(rebars_state_feu, start=101, end=199)['min']
-    sigma_f = envelope(frp_state_feu)['min']
+    sigma_c = env_val(envelope(concrete_state_feu)['max'])
+    sigma_s = env_val(envelope(rebars_state_feu, start=1, end=99)['min'])
+    sigma_sr = env_val(envelope(rebars_state_feu, start=101, end=199)['min'])
+    sigma_f = env_val(envelope(frp_state_feu)['min'])
 
-    equilibre_feu = "Equilibre de la section renforcée au feu :"
+    equilibre_feu = "Équilibre de la section renforcée au feu :"
+    equilibre_feu += check_pod_equilibre(pod_feu)
     equilibre_feu += f"\n\tContrainte béton: \tσ_c = {round(sigma_c, 2)} MPa"
     equilibre_feu += f"\n\tContrainte acier: \tσ_s = {round(sigma_s, 1)} MPa"
     equilibre_feu += f"\n\tContrainte acier renf: \tσ_sr = {round(sigma_sr, 1)} MPa"
@@ -312,6 +320,7 @@ def verif_els(
     sigma_s1 = envelope(rebars_state_1, start=1, end=99)['min']
 
     bilan_phase_1 = "Phase 1  - État de contraintes ELS dans la section :"
+    bilan_phase_1 += check_pod_equilibre(pod_1)
     bilan_phase_1 += f"\n\tContrainte béton:\t σ_c1 = {round(sigma_c1, 2)} MPa"
     bilan_phase_1 += f"\n\tContrainte acier:\t σ_s1 = {round(sigma_s1, 2)} MPa"
     bilan_phase_1 += f"\n\tContrainte acier renf:\t σ_sr1 = {0:.1f} MPa"
@@ -321,12 +330,13 @@ def verif_els(
     concrete_state_2 = section_2.concrete_internal_state(pod_2)
     rebars_state_2 = section_2.rebars_internal_state(pod_2)
     frp_state_2 = section_2.frp_internal_state(pod_2)
-    sigma_c2 = envelope(concrete_state_2)['max']
-    sigma_s2 = envelope(rebars_state_2, start=1, end=99)['min']
-    sigma_sr2 = envelope(rebars_state_2, start=101, end=199)['min']
-    sigma_f2 = envelope(frp_state_2)['min']
+    sigma_c2 = env_val(envelope(concrete_state_2)['max'])
+    sigma_s2 = env_val(envelope(rebars_state_2, start=1, end=99)['min'])
+    sigma_sr2 = env_val(envelope(rebars_state_2, start=101, end=199)['min'])
+    sigma_f2 = env_val(envelope(frp_state_2)['min'])
 
     bilan_phase_2 = "Phase 2  - État de contraintes ELS dans la section :"
+    bilan_phase_2 += check_pod_equilibre(pod_2)
     bilan_phase_2 += f"\n\tContrainte béton:\t σ_c2 = {round(sigma_c2, 2)} MPa"
     bilan_phase_2 += f"\n\tContrainte acier:\t σ_s2 = {round(sigma_s2, 2)} MPa"
     bilan_phase_2 += f"\n\tContrainte acier renf:\t σ_sr2 = {round(sigma_sr2, 2)} MPa"
@@ -334,6 +344,8 @@ def verif_els(
     print(bilan_phase_2)
 
     bilan_final = "Bilan  - État de contraintes ELS dans la section :"
+    bilan_final += check_pod_equilibre(pod_1)
+    bilan_final += check_pod_equilibre(pod_2)
     bilan_final += f"\n\tContrainte béton:\t σ_c = {round(sigma_c1 + sigma_c2, 2)} MPa"
     bilan_final += f"\n\tContrainte acier:\t σ_s = {round(sigma_s1 + sigma_s2, 2)} MPa"
     bilan_final += f"\n\tContrainte acier renf:\t σ_s = {round(sigma_sr2, 2)} MPa"
@@ -341,3 +353,10 @@ def verif_els(
     print(bilan_final)
 
     return None
+
+
+def check_pod_equilibre(pod) -> str | None:
+    equilibre = abs(pod.epsilon_0) + abs(pod.omega_y) + abs(pod.omega_z) != 00
+    if not equilibre:
+        return f"\n\t!! Warning !! Équilibre non trouvé !"
+    return ""
