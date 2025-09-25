@@ -13,8 +13,8 @@ materiaux = {
     'class_acier': "B",
     'fyk': 500,
     'Ef': 220_000,
-    'sigma_fs': 1200,
-    'sigma_fu': 1400,
+    'sigma_fs': 1400,
+    'sigma_fu': 1800,
     'carbone_feu': 1,
 }
 
