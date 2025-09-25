@@ -8,15 +8,17 @@ from moteur import (
 )
 
 
-
 materiaux = {
     'fck': 25,
     'class_acier': "B",
     'fyk': 500,
-    'Ef': 170_000,
+    'Ef': 220_000,
+    'sigma_fs': 1200,
+    'sigma_fu': 1400,
+    'carbone_feu': 1,
 }
 
-geom = {
+geometrie = {
     'h_dalle': 0.25,
     'b_dalle': 1,
     'As': 1.13e-4,
@@ -30,7 +32,7 @@ renforts = {
     'nsr': 2,
     'Af': 0.906e-4,
     'dprim_f': 0.0,
-    'nf': 0,
+    'nf': 3,
 }
 
 efforts = {
@@ -41,23 +43,24 @@ efforts = {
 }
 
 print_hypotheses(
-    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+    materiaux=materiaux, geometrie=geometrie, renforts=renforts, efforts=efforts,
 )
 verif_els(
-    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+    materiaux=materiaux, geometrie=geometrie, renforts=renforts, efforts=efforts,
 )
 verif_elu(
-    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+    materiaux=materiaux, geometrie=geometrie, renforts=renforts, efforts=efforts,
 )
 verif_feu(
-    materiaux=materiaux, geometrie=geom, renforts=renforts, efforts=efforts,
+    materiaux=materiaux, geometrie=geometrie, renforts=renforts, efforts=efforts,
 )
 
-section_1, section_2 = def_sections(materiaux, geom, renforts, 'elu')
+section_1, section_2 = def_sections(materiaux, geometrie, renforts, 'uls')
+section_1.plot_geometry_v2(title="Section avant renforcement")
+section_2.plot_geometry_v2(title="Section renforcée")
 section_1.plot_geometry_v2()
 section_2.plot_geometry_v2()
 section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)
 section_2.plot_interaction_diagram_v2(
     theta=0, finess=1, add_curves=[section_1_diag],
 )
-print(section_2)
