@@ -18,7 +18,7 @@ materiaux = {
 
 geom = {
     'h_dalle': 0.25,
-    'b_dalle': 2.60,
+    'b_dalle': 1,
     'As': 1.13e-4,
     'dprim_s': 0.04,
     'ns': 4,
@@ -29,7 +29,7 @@ renforts = {
     'dprim_sr': 0.025,
     'nsr': 2,
     'Af': 0.906e-4,
-    'dprim_f': 0,
+    'dprim_f': 0.0,
     'nf': 3,
 }
 
@@ -54,6 +54,8 @@ verif_feu(
 )
 
 section_1, section_2 = def_sections(materiaux, geom, renforts, 'elu')
+section_1.plot_geometry_v2()
+section_2.plot_geometry_v2()
 section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)
 section_2.plot_interaction_diagram_v2(
     theta=0, finess=1, add_curves=[section_1_diag],
