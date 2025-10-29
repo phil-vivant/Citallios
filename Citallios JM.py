@@ -19,11 +19,11 @@ materiaux = {
 }
 
 geometrie = {
-    'h_dalle': 0.25,
-    'b_dalle': 1,
-    'As': 1.13e-4,
+    'h_dalle': 0.26,
+    'b_dalle': 2.2,
+    'As': 5.65e-4,
     'dprim_s': 0.04,
-    'ns': 4,
+    'ns': 1,
 }
 
 renforts = {
