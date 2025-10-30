@@ -556,7 +556,7 @@ def run_in_terminal(
 
 if __name__ == "__main__":
     # Input file (CSV or XLSX)
-    PATH = r"D:\Python\Citallios\samples\DataBase_template_V2.xlsx"  # <-- edit me
+    PATH = r"D:\Python\Citallios\Calculs\DataBase_template.xlsx"  # <-- edit me
 
 
     print (PATH)
@@ -575,3 +575,5 @@ if __name__ == "__main__":
     # run_in_terminal(PATH,("els", "elu"),0)
 
     excel_results(PATH,None,0)
+
+    print("END")

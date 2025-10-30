@@ -12,9 +12,9 @@ materiaux = {
     'fck': 25,
     'class_acier': "B",
     'fyk': 500,
-    'Ef': 220_000,
-    'sigma_fs': 1400,
-    'sigma_fu': 1800,
+    'Ef': 170000,
+    'sigma_fs': 1300,
+    'sigma_fu': 1445,
     'carbone_feu': 1,
 }
 
@@ -27,19 +27,19 @@ geometrie = {
 }
 
 renforts = {
-    'Asr':1.13e-4,
+    'Asr':0.0e-4,
     'dprim_sr': 0.025,
-    'nsr': 2,
-    'Af': 0.906e-4,
+    'nsr': 10,
+    'Af': 0.96e-4,
     'dprim_f': 0.0,
-    'nf': 3,
+    'nf': 1,
 }
 
 efforts = {
-    'm_els_1': 30,
-    'm_els_2': 30,
-    'm_elu': 80,
-    'm_feu': 60,
+    'm_els_1': 38,
+    'm_els_2': 0,
+    'm_elu': 49.92,
+    'm_feu': 38,
 }
 
 print_hypotheses(
