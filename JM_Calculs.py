@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from typing import Iterable, Literal
 
-from moteur import verif_els, verif_elu, verif_feu, design_section
+from moteur import verif_els, verif_elu, verif_feu, design_section, print_hypotheses
 
 # Clefs des dictionnaires.
 IDSECTION_KEYS = {
@@ -561,19 +561,34 @@ if __name__ == "__main__":
 
     print (PATH)
 
-    print (excel_to_listofrowdicts(PATH ,0))
+#    print (excel_to_listofrowdicts(PATH ,0))
+#
+#    ROWS =excel_to_listofrowdicts(PATH ,0)
+#    ROWS_1 =ROWS[0]
+#
+#    print (_build_input_dict(ROWS_1))
+#
+#    print ( input_dicos_entrée(PATH,0))
+#    
+#    print (rows_results(PATH,("els", "elu"),0))
+#
+#    # run_in_terminal(PATH,("els", "elu"),0)
+#
+#    # excel_results(PATH,None,0)
+#
+#    print("END")
+
+    print("Vérif pour une ligne spécifique")
+    NUM_LIGNE=5
 
     ROWS =excel_to_listofrowdicts(PATH ,0)
-    ROWS_1 =ROWS[0]
+    ROWS_1 =ROWS[NUM_LIGNE-2]
 
     print (_build_input_dict(ROWS_1))
+    d =_build_input_dict(ROWS_1)
+    m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts']
 
-    print ( input_dicos_entrée(PATH,0))
-    
-    print (rows_results(PATH,("els", "elu"),0))
-
-    # run_in_terminal(PATH,("els", "elu"),0)
-
-    excel_results(PATH,None,0)
-
-    print("END")
+    print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
+    verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
+    verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+    verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
