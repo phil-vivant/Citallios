@@ -205,15 +205,16 @@ def def_sections(
         for i in range(nf):
             FRP_pts.append(Point(xf, yf))
             xf += ef
-        FRP_inf = FRPStrips(0, Af, renf_carbone, FRP_pts, 1)
+        FRP_inf = [FRPStrips(0, Af, renf_carbone, FRP_pts, 1)]
     else:
-        dummy_frp = FibreReinforcedPolymer(1e-9, 10000, 10000)
+        dummy_frp = FibreReinforcedPolymer(1e-9, 100_000, 100_000)
         FRP_inf = FRPStrips(0, 0, dummy_frp, [Point(0, 0)], 1)
+        FRP_inf = []
 
     dalle_renf = ConcreteSection(
         regions=[dalle_reg],
         rebars=rebars,
-        frp_strips=[FRP_inf],
+        frp_strips=FRP_inf,
         fibre_size_y=b_dalle / 2,
         fibre_size_z=0.005,
     )
@@ -284,7 +285,7 @@ def print_uls_results(uls_results: dict[str, float], type: str="uls") -> str:
     result_elu += f"\n\tAprès renforcement: \tM_Rd2 = {m_rd2:.1f} kN.m"
 
     equilibre_elu = title_2
-    equilibre_elu += check_pod_equilibre(pod_uls)
+    equilibre_elu += check_pod_equilibre(pod_uls, m_ed)
     equilibre_elu += f"\n\tContrainte béton: \tσ_c = {sigma_c:.2f} MPa"
     equilibre_elu += f"\n\tContrainte acier: \tσ_s = {sigma_s:.1f} MPa"
     equilibre_elu += f"\n\tContrainte acier renf: \tσ_r = {sigma_sr:.1f} MPa"
@@ -309,7 +310,7 @@ def print_sls_results(sls_results: dict[str, float]) -> str:
     m2 = sls_results['m2']
 
     bilan_phase_1 = "Phase 1  - État de contraintes ELS dans la section :"
-    bilan_phase_1 += check_pod_equilibre(pod_1)
+    bilan_phase_1 += check_pod_equilibre(pod_1, m1)
     bilan_phase_1 += f"\n\tMoment sollicitant: \tM_1  = {m1:.1f} kN.m"
     bilan_phase_1 += f"\n\tContrainte béton:\tσ_c1 = {sigma_c1:.2f} MPa"
     bilan_phase_1 += f"\n\tContrainte acier:\tσ_s1 = {sigma_s1:.1f} MPa"
@@ -317,7 +318,7 @@ def print_sls_results(sls_results: dict[str, float]) -> str:
     bilan_phase_1 += f"\n\tContrainte carbone:\tσ_f1 = {0:.1f} MPa"
 
     bilan_phase_2 = "Phase 2  - État de contraintes ELS dans la section :"
-    bilan_phase_2 += check_pod_equilibre(pod_2)
+    bilan_phase_2 += check_pod_equilibre(pod_2, m2)
     bilan_phase_2 += f"\n\tMoment sollicitant: \tM_2  = {m2:.1f} kN.m"
     bilan_phase_2 += f"\n\tContrainte béton:\tσ_c2 = {sigma_c2:.2f} MPa"
     bilan_phase_2 += f"\n\tContrainte acier:\tσ_s2 = {sigma_s2:.1f} MPa"
@@ -325,8 +326,8 @@ def print_sls_results(sls_results: dict[str, float]) -> str:
     bilan_phase_2 += f"\n\tContrainte carbone:\tσ_f2 = {sigma_f2:.1f} MPa"
 
     bilan_final = "Bilan  - État de contraintes ELS dans la section :"
-    bilan_final += check_pod_equilibre(pod_1)
-    bilan_final += check_pod_equilibre(pod_2)
+    bilan_final += check_pod_equilibre(pod_1, m1)
+    bilan_final += check_pod_equilibre(pod_2, m2)
     bilan_final += f"\n\tMoment ELS: \t\tM_12 = {m1+m2:.1f} kN.m"
     bilan_final += f"\n\tContrainte béton:\tσ_c  = {sigma_c1+sigma_c2:.2f} MPa"
     bilan_final += f"\n\tContrainte acier:\tσ_s  = {sigma_s1+sigma_s2:.1f} MPa"
@@ -455,8 +456,8 @@ def verif_feu(
     return None
 
 
-def check_pod_equilibre(pod) -> str | None:
+def check_pod_equilibre(pod, moment: float) -> str | None:
     equilibre = abs(pod.epsilon_0) + abs(pod.omega_y) + abs(pod.omega_z) != 00
-    if not equilibre:
+    if not equilibre and moment != 0:
         return f"\n\t!! Warning !! Équilibre non trouvé !"
     return ""

@@ -27,7 +27,7 @@ geometrie = {
 }
 
 renforts = {
-    'Asr':1.13e-4,
+    'Asr': 1.13e-4,
     'dprim_sr': 0.025,
     'nsr': 2,
     'Af': 0.906e-4,
@@ -41,6 +41,7 @@ efforts = {
     'm_elu': 80,
     'm_feu': 60,
 }
+
 
 print_hypotheses(
     materiaux=materiaux, geometrie=geometrie, renforts=renforts, efforts=efforts,
@@ -56,8 +57,6 @@ verif_feu(
 )
 
 section_1, section_2 = def_sections(materiaux, geometrie, renforts, 'uls')
-section_1.plot_geometry_v2()
-section_2.plot_geometry_v2()
 section_1.plot_geometry_v2()
 section_2.plot_geometry_v2()
 section_1_diag = section_1.build_NM_interaction_diagram(theta=0, finess=1)

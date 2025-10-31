@@ -555,8 +555,9 @@ def run_in_terminal(
 
 
 if __name__ == "__main__":
+    from rich import print
     # Input file (CSV or XLSX)
-    PATH = r"D:\Python\Citallios\Calculs\DataBase_template.xlsx"  # <-- edit me
+    PATH = r"C:\Users\ph.vivant\pycode_euroci\Citallios\Calculs\DataBase_template.xlsx"  # <-- edit me
 
 
     print (PATH)
@@ -587,6 +588,10 @@ if __name__ == "__main__":
     print (_build_input_dict(ROWS_1))
     d =_build_input_dict(ROWS_1)
     m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts']
+    print(m)
+    print(g)
+    print(r)
+    print(e)
 
     print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
     verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
