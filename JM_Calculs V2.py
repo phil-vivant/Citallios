@@ -17,8 +17,11 @@ GEOMETRIE_KEYS = {
 RENFORTS_KEYS = {
     'Asr', 'dprim_sr', 'nsr', 'Af', 'dprim_f', 'nf',
 }
-EFFORTS_KEYS = {
-    'm_els_1', 'm_els_2', 'm_elu', 'm_feu',
+EFFORTS1_KEYS = {
+    'm_els_1', 'm_els_2', 'm_elu_1', 'm_feu',
+}
+EFFORTS2_KEYS = {
+    'm_els_1', 'm_els_2', 'm_elu_1', 'm_feu',
 }
 
 # Clefs [ Nombre entier]
@@ -166,7 +169,8 @@ def _build_input_dict(row: dict) -> dict[str, dict]:
     materiaux: dict = {}
     geometrie: dict = {}
     renforts: dict = {}
-    efforts: dict = {}
+    efforts1: dict = {}
+    efforts2: dict = {}
 
     # Répartition de chaque colonne dans la bonne catégorie
     for k, v in row.items():
@@ -178,8 +182,10 @@ def _build_input_dict(row: dict) -> dict[str, dict]:
             geometrie[key] = val
         elif key in RENFORTS_KEYS:
             renforts[key] = val
-        elif key in EFFORTS_KEYS:
-            efforts[key] = val
+        elif key in EFFORTS1_KEYS:
+            efforts1[key] = val
+        elif key in EFFORTS2_KEYS:
+            efforts2[key] = val
         else:
             # Ignore les colonnes inconnues
             pass
@@ -203,7 +209,8 @@ def _build_input_dict(row: dict) -> dict[str, dict]:
         'materiaux': materiaux,
         'geometrie': geometrie,
         'renforts': renforts,
-        'efforts': efforts,
+        'efforts_1': efforts1,
+        'efforts_2': efforts2,
     }
 
 # -----------------------------------------------------------------------------
