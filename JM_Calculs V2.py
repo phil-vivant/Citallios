@@ -18,10 +18,10 @@ RENFORTS_KEYS = {
     'Asr', 'dprim_sr', 'nsr', 'Af', 'dprim_f', 'nf',
 }
 EFFORTS1_KEYS = {
-    'm_els_1', 'm_els_2', 'm_elu_1', 'm_feu',
+    'm_els_1_1', 'm_els_2_1', 'm_elu_1', 'm_feu_1',
 }
 EFFORTS2_KEYS = {
-    'm_els_1', 'm_els_2', 'm_elu_1', 'm_feu',
+    'm_els_1_2', 'm_els_2_2', 'm_elu_2', 'm_feu_2',
 }
 
 # Clefs [ Nombre entier]
@@ -163,7 +163,18 @@ def _to_number(v):
 #       }
 # -----------------------------------------------------------------------------
 def _build_input_dict(row: dict) -> dict[str, dict]:
-    """Retourne {'materiaux','geometrie','renforts','efforts'} à partir d'un dict de ligne."""
+    """
+    Transforme une ligne Excel en dictionnaire structuré :
+      - 'idsection' : identifiant de la section
+      - 'materiaux' : propriétés matériaux
+      - 'geometrie' : géométrie
+      - 'renforts'  : armatures/fibres
+      - 'efforts_1' et 'efforts_2' : moments (ELS/ELU/FEU)
+    
+    Les efforts sont :
+        'm_els_1', 'm_els_2', 'm_elu', 'm_feu'
+    → toujours présents et renvoyés dans cet ordre.
+    """
 
     # Initialisation des 4 sous-dictionnaires
     materiaux: dict = {}
@@ -183,12 +194,36 @@ def _build_input_dict(row: dict) -> dict[str, dict]:
         elif key in RENFORTS_KEYS:
             renforts[key] = val
         elif key in EFFORTS1_KEYS:
-            efforts1[key] = val
+            new_key = (
+                key.replace("_1_1", "_1")
+                   .replace("_2_1", "_2")
+                   .replace("_elu_1", "_elu")
+                   .replace("_feu_1", "_feu")
+            )
+            efforts1[new_key] = val
+
         elif key in EFFORTS2_KEYS:
-            efforts2[key] = val
+            new_key = (
+                key.replace("_1_2", "_1")
+                   .replace("_2_2", "_2")
+                   .replace("_elu_2", "_elu")
+                   .replace("_feu_2", "_feu")
+            )
+            efforts2[new_key] = val
+
         else:
-            # Ignore les colonnes inconnues
-            pass
+            pass  # clé inconnue ignorée
+
+# --- Valeurs par défaut pour les efforts manquants ---
+    effort_order = ["m_els_1", "m_els_2", "m_elu", "m_feu"]
+    for k in effort_order:
+        efforts1.setdefault(k, 0)
+        efforts2.setdefault(k, 0)
+
+    # --- Reconstitution dans l'ordre défini ---
+    efforts1 = {k: efforts1[k] for k in effort_order}
+    efforts2 = {k: efforts2[k] for k in effort_order}
+
 
     # Correction des valeurs entières (ex : 4.0 → 4)
     for k in list(geometrie.keys()):
@@ -338,17 +373,18 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     m = d['materiaux']
     g = d['geometrie']
     r = d['renforts']
-    e = d['efforts']
+    e_1 = d['efforts_1']
+    e_2 = d['efforts_2']
 
     # Dictionnaire des résultats à remplir
     out: dict[str, float] = {}
 
     # -------------------------------------------------------------------------
-    # Calculs en État Limite de Service (ELS)
+    # Calculs en État Limite de Service (ELS [Effort_1])
     # -------------------------------------------------------------------------
     if 'els' in combs:
          # Appel à la fonction de conception pour le mode "service" (sls)
-        sls = design_section(m, g, r, e, 'sls')
+        sls = design_section(m, g, r, e_1, 'sls')
         # Ajout des résultats dans le dictionnaire de sortie avec préfixe "els_"
         out.update({
             'els_m1': sls.get('m1'),
@@ -362,11 +398,11 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
         })
 
     # -------------------------------------------------------------------------
-    # Calculs en État Limite Ultime (ELU)
+    # Calculs en État Limite Ultime (ELU [Effort_1])
     # -------------------------------------------------------------------------
     if 'elu' in combs:
         # Appel à la fonction de conception pour le mode "ultime" (uls)
-        uls = design_section(m, g, r, e, 'uls')
+        uls = design_section(m, g, r, e_1, 'uls')
         # Ajout des résultats correspondants avec préfixe "elu_"
         out.update({
             'elu_m_ed': uls.get('m_ed'),
@@ -379,11 +415,11 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
         })
 
     # -------------------------------------------------------------------------
-    # Calculs en situation d'Incendie (FEU)
+    # Calculs en situation d'Incendie (FEU [Effort_1])
     # -------------------------------------------------------------------------
     if 'feu' in combs:
         # Appel à la fonction de conception pour le mode "feu" (fire)
-        feu = design_section(m, g, r, e, 'fire')
+        feu = design_section(m, g, r, e_1, 'fire')
         # Ajout des résultats correspondants avec préfixe "feu_"
         out.update({
             'feu_m_ed': feu.get('m_ed'),
@@ -393,6 +429,23 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
             'feu_sigma_s': feu.get('sigma_s'),
             'feu_sigma_sr': feu.get('sigma_sr'),
             'feu_sigma_f': feu.get('sigma_f'),
+        })
+    
+    # -------------------------------------------------------------------------
+    # Calculs en État Limite Ultime (ELU [Effort_2])
+    # -------------------------------------------------------------------------
+    if 'elu' in combs:
+        # Appel à la fonction de conception pour le mode "ultime" (uls)
+        uls = design_section(m, g, r, e_2, 'uls')
+        # Ajout des résultats correspondants avec préfixe "elu_"
+        out.update({
+            'elu_m_ed': uls.get('m_ed'),
+            'elu_m_rd1': uls.get('m_rd1'),
+            'elu_m_rd2': uls.get('m_rd2'),
+            'elu_sigma_c': uls.get('sigma_c'),
+            'elu_sigma_s': uls.get('sigma_s'),
+            'elu_sigma_sr': uls.get('sigma_sr'),
+            'elu_sigma_f': uls.get('sigma_f'),
         })
     # Retourne le dictionnaire complet des résultats
     return out
@@ -507,7 +560,7 @@ def rows_results(
 #   - Assure-toi que input_dicos_entrée() lit la même feuille/ordre que df_in,
 #     pour garder l'alignement ligne-à-ligne lors de la concaténation.
 # ----------------------------------------------------------------------------
-def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("els", "elu")) -> str:
+def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("els", "elu_1")) -> str:
     """Écrit un Excel de sortie = colonnes d'entrée + colonnes de résultats."""
   
     # 1) Lire le tableau d'entrée (Excel → DataFrame)
@@ -541,7 +594,7 @@ def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("
 
 def run_in_terminal(
     calculs: str,
-    combs: Iterable[Literal['els', 'elu', 'feu']] = ("els", "elu"),
+    combs: Iterable[Literal['els_1', 'elu_1', 'feu_1','elu_2']] = ("els_1", "elu_1"),
     sheet_name=0,
 ) -> None:
     dic_list = input_dicos_entrée(calculs, sheet_name=sheet_name)
@@ -564,21 +617,24 @@ def run_in_terminal(
 if __name__ == "__main__":
     from rich import print
     # Input file (CSV or XLSX)
-    PATH = r"D:\Python\Citallios\Calculs\DataBase_template.xlsx"  # <-- edit me
+    PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
 
 
     print (PATH)
 
-#    print (excel_to_listofrowdicts(PATH ,0))
+    print (excel_to_listofrowdicts(PATH ,0))
 #
-#    ROWS =excel_to_listofrowdicts(PATH ,0)
-#    ROWS_1 =ROWS[0]
+    ROWS =excel_to_listofrowdicts(PATH ,0)
+    ROWS_1 =ROWS[0]
 #
-#    print (_build_input_dict(ROWS_1))
+    print(ROWS_1)
+ #
+    print (_build_input_dict(ROWS_1))
 #
-#    print ( input_dicos_entrée(PATH,0))
-#    
-#    print (rows_results(PATH,("els", "elu"),0))
+    print ( input_dicos_entrée(PATH,0))
+#   
+#  
+    print (rows_results(PATH,("els", "elu"),0))
 #
 #    # run_in_terminal(PATH,("els", "elu"),0)
 #
@@ -586,21 +642,21 @@ if __name__ == "__main__":
 #
 #    print("END")
 
-    print("Vérif pour une ligne spécifique")
-    NUM_LIGNE=2
-
-    ROWS =excel_to_listofrowdicts(PATH ,0)
-    ROWS_1 =ROWS[NUM_LIGNE-2]
-
-    print (_build_input_dict(ROWS_1))
-    d =_build_input_dict(ROWS_1)
-    m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts']
-    print(m)
-    print(g)
-    print(r)
-    print(e)
-
-    print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
-    verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
-    verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
-    verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+##    print("Vérif pour une ligne spécifique")
+##    NUM_LIGNE=2
+##
+##    ROWS =excel_to_listofrowdicts(PATH ,0)
+##    ROWS_1 =ROWS[NUM_LIGNE-2]
+##
+##    print (_build_input_dict(ROWS_1))
+##    d =_build_input_dict(ROWS_1)
+##    m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts']
+##    print(m)
+##    print(g)
+##    print(r)
+##    print(e)
+##
+##    print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
+##    verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
+##    verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+##    verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
