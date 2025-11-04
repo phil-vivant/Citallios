@@ -384,17 +384,17 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     # -------------------------------------------------------------------------
     if 'els' in combs:
          # Appel à la fonction de conception pour le mode "service" (sls)
-        sls = design_section(m, g, r, e_1, 'sls')
+        sls1 = design_section(m, g, r, e_1, 'sls')
         # Ajout des résultats dans le dictionnaire de sortie avec préfixe "els_"
         out.update({
-            'els_m1': sls.get('m1'),
-            'els_m2': sls.get('m2'),
-            'els_sigma_c1': sls.get('sigma_c1'),
-            'els_sigma_c2': sls.get('sigma_c2'),
-            'els_sigma_s1': sls.get('sigma_s1'),
-            'els_sigma_s2': sls.get('sigma_s2'),
-            'els_sigma_sr2': sls.get('sigma_sr2'),
-            'els_sigma_f2': sls.get('sigma_f2'),
+            'els1_m1': sls1.get('m1'),
+            'els1_m2': sls1.get('m2'),
+            'els1_sigma_c1': sls1.get('sigma_c1'),
+            'els1_sigma_c2': sls1.get('sigma_c2'),
+            'els1_sigma_s1': sls1.get('sigma_s1'),
+            'els1_sigma_s2': sls1.get('sigma_s2'),
+            'els1_sigma_sr2': sls1.get('sigma_sr2'),
+            'els1_sigma_f2': sls1.get('sigma_f2'),
         })
 
     # -------------------------------------------------------------------------
@@ -402,16 +402,16 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     # -------------------------------------------------------------------------
     if 'elu' in combs:
         # Appel à la fonction de conception pour le mode "ultime" (uls)
-        uls = design_section(m, g, r, e_1, 'uls')
+        uls1 = design_section(m, g, r, e_1, 'uls')
         # Ajout des résultats correspondants avec préfixe "elu_"
         out.update({
-            'elu_m_ed': uls.get('m_ed'),
-            'elu_m_rd1': uls.get('m_rd1'),
-            'elu_m_rd2': uls.get('m_rd2'),
-            'elu_sigma_c': uls.get('sigma_c'),
-            'elu_sigma_s': uls.get('sigma_s'),
-            'elu_sigma_sr': uls.get('sigma_sr'),
-            'elu_sigma_f': uls.get('sigma_f'),
+            'elu1_m_ed': uls1.get('m_ed'),
+            'elu1_m_rd1': uls1.get('m_rd1'),
+            'elu1_m_rd2': uls1.get('m_rd2'),
+            'elu1_sigma_c': uls1.get('sigma_c'),
+            'elu1_sigma_s': uls1.get('sigma_s'),
+            'elu1_sigma_sr': uls1.get('sigma_sr'),
+            'elu1_sigma_f': uls1.get('sigma_f'),
         })
 
     # -------------------------------------------------------------------------
@@ -419,16 +419,16 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     # -------------------------------------------------------------------------
     if 'feu' in combs:
         # Appel à la fonction de conception pour le mode "feu" (fire)
-        feu = design_section(m, g, r, e_1, 'fire')
+        feu1 = design_section(m, g, r, e_1, 'fire')
         # Ajout des résultats correspondants avec préfixe "feu_"
         out.update({
-            'feu_m_ed': feu.get('m_ed'),
-            'feu_m_rd1': feu.get('m_rd1'),
-            'feu_m_rd2': feu.get('m_rd2'),
-            'feu_sigma_c': feu.get('sigma_c'),
-            'feu_sigma_s': feu.get('sigma_s'),
-            'feu_sigma_sr': feu.get('sigma_sr'),
-            'feu_sigma_f': feu.get('sigma_f'),
+            'feu1_m_ed': feu1.get('m_ed'),
+            'feu1_m_rd1': feu1.get('m_rd1'),
+            'feu1_m_rd2': feu1.get('m_rd2'),
+            'feu1_sigma_c': feu1.get('sigma_c'),
+            'feu1_sigma_s': feu1.get('sigma_s'),
+            'feu1_sigma_sr': feu1.get('sigma_sr'),
+            'feu1_sigma_f': feu1.get('sigma_f'),
         })
     
     # -------------------------------------------------------------------------
@@ -436,16 +436,17 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     # -------------------------------------------------------------------------
     if 'elu' in combs:
         # Appel à la fonction de conception pour le mode "ultime" (uls)
-        uls = design_section(m, g, r, e_2, 'uls')
+        r_zero = {k: 0 for k in r.keys()}  # copie des renforts, toutes valeurs = 0
+        uls2 = design_section(m, g, r_zero, e_2, 'uls')
         # Ajout des résultats correspondants avec préfixe "elu_"
         out.update({
-            'elu_m_ed': uls.get('m_ed'),
-            'elu_m_rd1': uls.get('m_rd1'),
-            'elu_m_rd2': uls.get('m_rd2'),
-            'elu_sigma_c': uls.get('sigma_c'),
-            'elu_sigma_s': uls.get('sigma_s'),
-            'elu_sigma_sr': uls.get('sigma_sr'),
-            'elu_sigma_f': uls.get('sigma_f'),
+            'elu2_m_ed': uls2.get('m_ed'),
+            'elu2_m_rd1': uls2.get('m_rd1'),
+            #'elu2_m_rd2': uls2.get('m_rd2'),
+            'elu2_sigma_c': uls2.get('sigma_c'),
+            'elu2_sigma_s': uls2.get('sigma_s'),
+            #'elu2_sigma_sr': uls2.get('sigma_sr'),
+            #'elu2_sigma_f': uls2.get('sigma_f'),
         })
     # Retourne le dictionnaire complet des résultats
     return out
@@ -560,7 +561,7 @@ def rows_results(
 #   - Assure-toi que input_dicos_entrée() lit la même feuille/ordre que df_in,
 #     pour garder l'alignement ligne-à-ligne lors de la concaténation.
 # ----------------------------------------------------------------------------
-def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("els", "elu_1")) -> str:
+def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("els", "elu")) -> str:
     """Écrit un Excel de sortie = colonnes d'entrée + colonnes de résultats."""
   
     # 1) Lire le tableau d'entrée (Excel → DataFrame)
@@ -594,7 +595,7 @@ def excel_results(path: str, out_path: str | None = None, sheet_name=0, combs=("
 
 def run_in_terminal(
     calculs: str,
-    combs: Iterable[Literal['els_1', 'elu_1', 'feu_1','elu_2']] = ("els_1", "elu_1"),
+    combs: Iterable[Literal['els', 'elu', 'feu']] = ("els", "elu"),
     sheet_name=0,
 ) -> None:
     dic_list = input_dicos_entrée(calculs, sheet_name=sheet_name)
@@ -604,21 +605,22 @@ def run_in_terminal(
         m = d['materiaux']
         g = d['geometrie']
         r = d['renforts']
-        e = d['efforts']
+        e_1 = d['efforts_1']
+        e_2 = d['efforts_2']
         print(f"\n===== Calcul #{i} =====")
         if 'els' in combs:
-            verif_els(m, g, r, e)
+            verif_els(m, g, r, e_1)
         if 'elu' in combs:
-            verif_elu(m, g, r, e)
+            verif_elu(m, g, r, e_1)
         if 'feu' in combs:
-            verif_feu(m, g, r, e)
+            verif_feu(m, g, r, e_1)
 
 
 if __name__ == "__main__":
     from rich import print
     # Input file (CSV or XLSX)
-    PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
-
+    #PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
+    PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
 
     print (PATH)
 
@@ -636,9 +638,9 @@ if __name__ == "__main__":
 #  
     print (rows_results(PATH,("els", "elu"),0))
 #
-#    # run_in_terminal(PATH,("els", "elu"),0)
+#    run_in_terminal(PATH,("els", "elu"),0)
 #
-#   excel_results(PATH,None,0)
+    excel_results(PATH,None,0)
 #
 #    print("END")
 
