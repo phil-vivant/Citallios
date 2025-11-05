@@ -441,10 +441,12 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
         # Ajout des résultats correspondants avec préfixe "elu_"
         out.update({
             'elu2_m_ed': uls2.get('m_ed'),
-            'elu2_m_rd1': uls2.get('m_rd1'),
-            #'elu2_m_rd2': uls2.get('m_rd2'),
             'elu2_sigma_c': uls2.get('sigma_c'),
             'elu2_sigma_s': uls2.get('sigma_s'),
+            'elu2_m_rd1': uls2.get('m_rd1'),
+            #'elu2_m_rd2': uls2.get('m_rd2'),
+            #'elu2_sigma_c': uls2.get('sigma_c'),
+            #'elu2_sigma_s': uls2.get('sigma_s'),
             #'elu2_sigma_sr': uls2.get('sigma_sr'),
             #'elu2_sigma_f': uls2.get('sigma_f'),
         })
@@ -619,8 +621,8 @@ def run_in_terminal(
 if __name__ == "__main__":
     from rich import print
     # Input file (CSV or XLSX)
-    #PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
-    PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
+    PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
+    #PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
 
     print (PATH)
 
