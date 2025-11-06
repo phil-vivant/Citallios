@@ -436,14 +436,22 @@ def row_results (d: dict[str, dict], combs) -> dict[str, float]:
     # -------------------------------------------------------------------------
     if 'elu' in combs:
         # Appel à la fonction de conception pour le mode "ultime" (uls)
-        r_zero = {k: 0 for k in r.keys()}  # copie des renforts, toutes valeurs = 0
-        uls2 = design_section(m, g, r_zero, e_2, 'uls')
+        #r_Asr = {k: 0 for k in r.keys()}  # copie des renforts, toutes valeurs = 0
+        r_asr = {
+            'Asr': r.get('Asr', 0),
+            'dprim_sr': r.get('dprim_sr', 0),
+            'nsr': r.get('nsr', 0),
+            # autres renforts mis à zéro
+            'Af': 0, 'dprim_f': 0, 'nf': 0,
+        }
+        uls2 = design_section(m, g, r_asr, e_2, 'uls')
         # Ajout des résultats correspondants avec préfixe "elu_"
         out.update({
             'elu2_m_ed': uls2.get('m_ed'),
             'elu2_sigma_c': uls2.get('sigma_c'),
             'elu2_sigma_s': uls2.get('sigma_s'),
-            'elu2_m_rd1': uls2.get('m_rd1'),
+            'elu2_m_rd': uls2.get('m_rd2'),
+            #'elu2_m_rd1': uls2.get('m_rd1'),
             #'elu2_m_rd2': uls2.get('m_rd2'),
             #'elu2_sigma_c': uls2.get('sigma_c'),
             #'elu2_sigma_s': uls2.get('sigma_s'),
@@ -643,7 +651,7 @@ if __name__ == "__main__":
 #    run_in_terminal(PATH,("els", "elu"),0)
 #
     excel_results(PATH,None,0)
-#
+
 #    print("END")
 
 ##    print("Vérif pour une ligne spécifique")
@@ -664,3 +672,22 @@ if __name__ == "__main__":
 ##    verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
 ##    verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
 ##    verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+
+
+r = {
+    'Asr': 1.13e-4,
+    'dprim_sr': 0.025,
+    'nsr': 2,
+    'Af': 0.906e-4,
+    'dprim_f': 0.0,
+    'nf': 3,
+}
+
+r_asr = {
+    'Asr': r.get('Asr', 0),
+    'dprim_sr': r.get('dprim_sr', 0),
+    'nsr': r.get('nsr', 0),
+    # autres renforts mis à zéro
+    'Af': 0, 'dprim_f': 0, 'nf': 0,
+}
+print(r_asr)
