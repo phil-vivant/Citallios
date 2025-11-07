@@ -637,8 +637,14 @@ if __name__ == "__main__":
     
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 
-    #PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx"
-    PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx" 
+    PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MisStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MisStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MisStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MisStrip_V1.xlsx" 
     # PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
 
