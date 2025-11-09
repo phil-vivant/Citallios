@@ -636,17 +636,26 @@ if __name__ == "__main__":
     # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH3_V1.xlsx"
     
     #__________________________________________________________________________________________________________________________
-    # Chemin PH2 
+    # Chemin PH2 Marché
     # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx"
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx" 
     # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx"
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx" 
-    PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MisStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MisStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MisStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MisStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V1.xlsx"
+    PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V1.xlsx" 
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH2 Adaptation TFC
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V2.xlsx" 
+
 
     print (PATH)
 
