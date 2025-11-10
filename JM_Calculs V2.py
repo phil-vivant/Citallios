@@ -637,24 +637,66 @@ if __name__ == "__main__":
     
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Marché
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V1.xlsx"
-    PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V1.xlsx" 
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Adaptation TFC
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileA_MidStrip_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\DataBase_PH2_FileB_MidStrip_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V2.xlsx" 
+
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH3 Marché
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V1.xlsx" 
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH3 Adaptation TFC
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx" 
+
+        #__________________________________________________________________________________________________________________________
+    # Chemin PH4 Marché
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V1.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V1.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V1.xlsx" 
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH4 Adaptation TFC
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V2.xlsx" 
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx" 
 
 
     print (PATH)
