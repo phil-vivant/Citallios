@@ -657,6 +657,22 @@ if __name__ == "__main__":
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V2.xlsx" 
 
     #__________________________________________________________________________________________________________________________
+    # Chemin PH2 Adaptation TFC prise en compte ELS
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V3.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V3.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V3.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V3.xlsx"
+
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH2 TFC avec mise à jour efforts reels etabs
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V4.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V4.xlsx"
+    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V4.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V4.xlsx"
+
+
+
+    #__________________________________________________________________________________________________________________________
     # Chemin PH3 Marché
     # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx"
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx" 
@@ -700,61 +716,63 @@ if __name__ == "__main__":
 
 
     print (PATH)
-
-    print (excel_to_listofrowdicts(PATH ,0))
+### TEST
+#     print (excel_to_listofrowdicts(PATH ,0))
+# #
+#     ROWS =excel_to_listofrowdicts(PATH ,0)
+#     ROWS_1 =ROWS[0]
+# #
+#     print(ROWS_1)
+#  #
+#     print (_build_input_dict(ROWS_1))
+# #
+#     print ( input_dicos_entrée(PATH,0))
+# #   
+# #  
+#     print (rows_results(PATH,("els", "elu"),0))
+# #
+#     run_in_terminal(PATH,("els", "elu"),0)
 #
-    ROWS =excel_to_listofrowdicts(PATH ,0)
-    ROWS_1 =ROWS[0]
-#
-    print(ROWS_1)
- #
-    print (_build_input_dict(ROWS_1))
-#
-    print ( input_dicos_entrée(PATH,0))
-#   
-#  
-    print (rows_results(PATH,("els", "elu"),0))
-#
-#    run_in_terminal(PATH,("els", "elu"),0)
+### Calcul et ecriture dans un fichier excel 
 #
     excel_results(PATH,None,0)
 
 #    print("END")
 
-##    print("Vérif pour une ligne spécifique")
-##    NUM_LIGNE=2
-##
-##    ROWS =excel_to_listofrowdicts(PATH ,0)
-##    ROWS_1 =ROWS[NUM_LIGNE-2]
-##
-##    print (_build_input_dict(ROWS_1))
-##    d =_build_input_dict(ROWS_1)
-##    m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts']
-##    print(m)
-##    print(g)
-##    print(r)
-##    print(e)
-##
-##    print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
-##    verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
-##    verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
-##    verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
-
-
-r = {
-    'Asr': 1.13e-4,
-    'dprim_sr': 0.025,
-    'nsr': 2,
-    'Af': 0.906e-4,
-    'dprim_f': 0.0,
-    'nf': 3,
-}
-
-r_asr = {
-    'Asr': r.get('Asr', 0),
-    'dprim_sr': r.get('dprim_sr', 0),
-    'nsr': r.get('nsr', 0),
-    # autres renforts mis à zéro
-    'Af': 0, 'dprim_f': 0, 'nf': 0,
-}
-print(r_asr)
+# ###    print("Vérif pour une ligne spécifique")
+#     NUM_LIGNE=5
+# 
+#     ROWS =excel_to_listofrowdicts(PATH ,0)
+#     ROWS_1 =ROWS[NUM_LIGNE-2]
+# 
+#     print (_build_input_dict(ROWS_1))
+#     d =_build_input_dict(ROWS_1)
+#     m, g, r, e = d['materiaux'], d['geometrie'], d['renforts'], d['efforts_1']
+#     print(m)
+#     print(g)
+#     print(r)
+#     print(e)
+# 
+#     print_hypotheses(materiaux=m, geometrie=g, renforts=r, efforts=e)
+#     verif_els(materiaux=m, geometrie=g, renforts=r, efforts=e)
+#     verif_elu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+#     verif_feu(materiaux=m, geometrie=g, renforts=r, efforts=e)
+# 
+# 
+# r = {
+#     'Asr': 1.13e-4,
+#     'dprim_sr': 0.025,
+#     'nsr': 2,
+#     'Af': 0.906e-4,
+#     'dprim_f': 0.0,
+#     'nf': 3,
+# }
+# 
+# r_asr = {
+#     'Asr': r.get('Asr', 0),
+#     'dprim_sr': r.get('dprim_sr', 0),
+#     'nsr': r.get('nsr', 0),
+#     # autres renforts mis à zéro
+#     'Af': 0, 'dprim_f': 0, 'nf': 0,
+# }
+# print(r_asr)
