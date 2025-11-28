@@ -677,10 +677,11 @@ if __name__ == "__main__":
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V5.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 TFC avec mise à jour efforts reels etabs + redistribution ELS
-    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V6.xlsx"
+    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_Divers_V6.xlsx"
 
 
     #__________________________________________________________________________________________________________________________
