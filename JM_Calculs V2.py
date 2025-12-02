@@ -681,9 +681,10 @@ if __name__ == "__main__":
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V6.xlsx"
-    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_Divers_V6.xlsx"
-
-
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_Divers_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_File B_Divers_V6.xlsx"
+    #
+ 
     #__________________________________________________________________________________________________________________________
     # Chemin PH3 Marché
     # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx"
@@ -704,6 +705,15 @@ if __name__ == "__main__":
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V2.xlsx" 
     # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx"
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx" 
+    #
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH3 TFC avec mise à jour efforts reels etabs + redistribution ELS
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V6.xlsx"
+    PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_Divers_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_File B_Divers_V6.xlsx"
 
         #__________________________________________________________________________________________________________________________
     # Chemin PH4 Marché
