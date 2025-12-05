@@ -678,7 +678,7 @@ if __name__ == "__main__":
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 TFC avec mise à jour efforts reels etabs + redistribution ELS
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V6.xlsx"
-    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V6.xlsx"
     # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_Divers_V6.xlsx"
@@ -735,6 +735,24 @@ if __name__ == "__main__":
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V2.xlsx" 
     # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx"
     # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx" 
+
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH4 TFC avec mise à jour efforts reels etabs + redistribution ELS
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_Divers_V6.xlsx"
+    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_File B_Divers_V6.xlsx"
+
+
+    PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_Divers_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_File B_Divers_V6.xlsx"
+
 
 
     print (PATH)
