@@ -628,113 +628,115 @@ def run_in_terminal(
 
 if __name__ == "__main__":
     from rich import print
-    # Input file (CSV or XLSX)
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_template_V2.xlsx"  # <-- edit me
-    # Chemin PH4 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH4_V1.xlsx"
-    # Chemin PH3 
-    # PATH = r"D:\Python\Citallios\Calculs\DataBase_PH3_V1.xlsx"
-    
+    #=========================================================================================================================
+    # Dossier PH2
+    # folder = r"D:\Python\Citallios\Calculs\PH2"
+    # folder = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2"    
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Marché
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V1.xlsx" 
+    # excel_name = "DataBase_PH2_FileA_V1.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V1.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V1.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V1.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Adaptation TFC
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V2.xlsx" 
-
+    # excel_name = "DataBase_PH2_FileA_V2.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V2.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V2.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V2.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Adaptation TFC prise en compte ELS
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V3.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V3.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V3.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V3.xlsx"
-
+    # excel_name = "DataBase_PH2_FileA_V3.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V3.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V3.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V3.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 TFC avec mise à jour efforts reels etabs
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V4.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V4.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V4.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V4.xlsx"
+    # excel_name = "DataBase_PH2_FileA_V4.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V4.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V4.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V4.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 TFC avec mise à jour efforts reels etabs + redistribution ELS
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V5.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V5.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V5.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V5.xlsx"
+    # excel_name = "DataBase_PH2_FileA_V5.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V5.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V5.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V5.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 TFC avec mise à jour efforts reels etabs + redistribution ELS
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_V6.xlsx"
-    PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileA_MidStrip_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_FileB_MidStrip_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_Divers_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH2\DataBase_PH2_File B_Divers_V6.xlsx"
+    # excel_name = "DataBase_PH2_FileA_V6.xlsx"
+    # excel_name = "DataBase_PH2_FileB_V6.xlsx"
+    # excel_name = "DataBase_PH2_FileA_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH2_FileB_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH2_Divers_V6.xlsx"
+    # excel_name = "DataBase_PH2_File B_Divers_V6.xlsx"
     #
  
+    #=========================================================================================================================
+    # Dossier PH3
+    # folder = r"D:\Python\Citallios\Calculs\PH3"
+    # folder = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3"    
     #__________________________________________________________________________________________________________________________
     # Chemin PH3 Marché
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V1.xlsx" 
+    # excel_name = "DataBase_PH3_FileA_V1.xlsx"
+    # excel_name = "DataBase_PH3_FileB_V1.xlsx"
+    # excel_name = "DataBase_PH3_FileA_MidStrip_V1.xlsx"
+    # excel_name = "DataBase_PH3_FileB_MidStrip_V1.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH3 Adaptation TFC
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V2.xlsx" 
+    # excel_name = "DataBase_PH3_FileA_V2.xlsx"
+    # excel_name = "DataBase_PH3_FileB_V2.xlsx"
+    # excel_name = "DataBase_PH3_FileA_MidStrip_V2.xlsx"
+    # excel_name = "DataBase_PH3_FileB_MidStrip_V2.xlsx"
     #
     #__________________________________________________________________________________________________________________________
     # Chemin PH3 TFC avec mise à jour efforts reels etabs + redistribution ELS
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileA_MidStrip_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_FileB_MidStrip_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_Divers_V6.xlsx"
-    # PATH = r"D:\Python\Citallios\Calculs\PH3\DataBase_PH3_File B_Divers_V6.xlsx"
+    # excel_name = "DataBase_PH3_FileA_V6.xlsx"
+    # excel_name = "DataBase_PH3_FileB_V6.xlsx"
+    # excel_name = "DataBase_PH3_FileA_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH3_FileB_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH3_Divers_V6.xlsx"
+    # excel_name = "DataBase_PH3_File B_Divers_V6.xlsx"
 
-        #__________________________________________________________________________________________________________________________
+
+    #=========================================================================================================================
+    # Dossier PH4
+    # folder = r"D:\Python\Citallios\Calculs\PH4"
+    folder = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4"    
+    #__________________________________________________________________________________________________________________________
     # Chemin PH4 Marché
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V1.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V1.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V1.xlsx" 
+    # excel_name = "DataBase_PH4_FileA_V1.xlsx"
+    # excel_name = "DataBase_PH4_FileB_V1.xlsx"
+    # excel_name = "DataBase_PH4_FileA_MidStrip_V1.xlsx"
+    # excel_name = "DataBase_PH4_FileB_MidStrip_V1.xlsx"
     #__________________________________________________________________________________________________________________________
     # Chemin PH4 Adaptation TFC
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V2.xlsx" 
-    # PATH = r"D:\Python\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx"
-    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V2.xlsx" 
+    # excel_name = "DataBase_PH4_FileA_V2.xlsx"
+    # excel_name = "DataBase_PH4_FileB_V2.xlsx"
+    # excel_name = "DataBase_PH4_FileA_MidStrip_V2.xlsx"
+    # excel_name = "DataBase_PH4_FileB_MidStrip_V2.xlsx"
+
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH4 TFC avec mise à jour efforts reels etabs + redistribution ELS
+    excel_name = "DataBase_PH4_FileA_V6.xlsx"
+    # excel_name = "DataBase_PH4_FileB_V6.xlsx"
+    # excel_name = "DataBase_PH4_FileA_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH4_FileB_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH4_Divers_V6.xlsx"
+    # excel_name = "DataBase_PH4_File B_Divers_V6.xlsx"
+
+
+    PATH = os.path.join(folder, excel_name)
+
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileA_MidStrip_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_FileB_MidStrip_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_Divers_V6.xlsx"
+    # PATH = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4\DataBase_PH4_File B_Divers_V6.xlsx"
+
+
+
 
 
     print (PATH)
