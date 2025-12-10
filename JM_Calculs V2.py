@@ -720,8 +720,8 @@ if __name__ == "__main__":
     # Chemin PH4 TFC avec mise à jour efforts reels etabs + redistribution ELS
     # excel_name = "DataBase_PH4_FileA_V6.xlsx"
     # excel_name = "DataBase_PH4_FileB_V6.xlsx"
-    excel_name = "DataBase_PH4_FileA_MidStrip_V6.xlsx"
-    # excel_name = "DataBase_PH4_FileB_MidStrip_V6.xlsx"
+    # excel_name = "DataBase_PH4_FileA_MidStrip_V6.xlsx"
+    excel_name = "DataBase_PH4_FileB_MidStrip_V6.xlsx"
     # excel_name = "DataBase_PH4_Divers_V6.xlsx"
     # excel_name = "DataBase_PH4_File B_Divers_V6.xlsx"
 
