@@ -630,7 +630,7 @@ if __name__ == "__main__":
     from rich import print
     #=========================================================================================================================
     # Dossier PH2
-    folder = r"D:\Python\Citallios\Calculs\PH2"
+    # folder = r"D:\Python\Citallios\Calculs\PH2"
     # folder = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH2"    
     #__________________________________________________________________________________________________________________________
     # Chemin PH2 Marché
@@ -676,7 +676,7 @@ if __name__ == "__main__":
     # excel_name = "DataBase_PH2_FileB_V7.xlsx"
     # excel_name = "DataBase_PH2_FileA_MidStrip_V7.xlsx"
     # excel_name = "DataBase_PH2_FileB_MidStrip_V7.xlsx"
-    excel_name = "DataBase_PH2_Divers_V7.xlsx"
+    # excel_name = "DataBase_PH2_Divers_V7.xlsx"
     # excel_name = "DataBase_PH2_File B_Divers_V7.xlsx"
     #
  
@@ -709,7 +709,7 @@ if __name__ == "__main__":
 
     #=========================================================================================================================
     # Dossier PH4
-    # folder = r"D:\Python\Citallios\Calculs\PH4"
+    folder = r"D:\Python\Citallios\Calculs\PH4"
     # folder = r"C:\Users\moute\OneDrive\Documents\Citallios\Calculs\PH4"    
     #__________________________________________________________________________________________________________________________
     # Chemin PH4 Marché
@@ -732,6 +732,15 @@ if __name__ == "__main__":
     # excel_name = "DataBase_PH4_FileB_MidStrip_V6.xlsx"
     # excel_name = "DataBase_PH4_Divers_V6.xlsx"
     # excel_name = "DataBase_PH4_File B_Divers_V6.xlsx"
+
+    #__________________________________________________________________________________________________________________________
+    # Chemin PH4 TFC avec mise à jour efforts reels etabs + redistribution ELS
+    # excel_name = "DataBase_PH4_FileA_V7.xlsx"
+    excel_name = "DataBase_PH4_FileB_V7.xlsx"
+    # excel_name = "DataBase_PH4_FileA_MidStrip_V7.xlsx"
+    # excel_name = "DataBase_PH4_FileB_MidStrip_V7.xlsx"
+    # excel_name = "DataBase_PH4_Divers_V7.xlsx"
+    # excel_name = "DataBase_PH4_File B_Divers_V7.xlsx"
 
 
     PATH = os.path.join(folder, excel_name)
